@@ -22,6 +22,25 @@
       animation: typingEffectAnimation 2.5s steps(30, end);
     }
   }
+
+  &__contact-me {
+    margin: 50px;
+    button {
+      cursor: pointer;
+      padding: 10px 70px;
+      font-size: 2rem;
+      background-color: transparent;
+      color: var(--yellow-theme-main-color);
+      border: 1.5px solid var(--yellow-theme-main-color);
+      border-radius: 4px;
+      font-weight: 500;
+
+      &:hover {
+        background-color: var(--yellow-theme-main-color);
+        color: black;
+      }
+    }
+  }
 }
 
 @media only screen and (max-width: 550px) {
