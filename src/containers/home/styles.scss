@@ -25,18 +25,21 @@
 
   &__contact-me {
     margin: 50px;
+    display: flex;
+    justify-content: center;
+
     button {
       cursor: pointer;
       padding: 10px 70px;
       font-size: 2rem;
-      background-color: transparent;
+      background: transparent;
       color: var(--yellow-theme-main-color);
       border: 1.5px solid var(--yellow-theme-main-color);
       border-radius: 4px;
       font-weight: 500;
 
       &:hover {
-        background-color: var(--yellow-theme-main-color);
+        background: var(--yellow-theme-main-color);
         color: black;
       }
     }

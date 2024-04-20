@@ -5,3 +5,12 @@
     height: calc(100vh - 80px);
   }
 }
+
+/* @media only screen and (max-width: 568px) {
+  .App {
+    height: 180vh;
+    &__main-page-content {
+      height: calc(180vh - 80px);
+    }
+  }
+} */
