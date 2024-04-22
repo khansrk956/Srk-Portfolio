@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { BsInfoCircleFill } from "react-icons/bs";
+import { BsInfoCircleFill, BsLink } from "react-icons/bs";
 import PageHeaderContent from "../../components/pageHeaderContent";
 import ImageOne from "../../images/img1.webp";
 import ImageTwo from "../../images/img2.webp";
@@ -13,26 +13,31 @@ const portfolioData = [
     id: 2,
     name: "Ecommerce",
     image: ImageOne,
+    link: "",
   },
   {
     id: 3,
     name: "Notes APp",
     image: ImageTwo,
+    link: "",
   },
   {
     id: 2,
     name: "To-do-List",
     image: ImageThree,
+    link: "",
   },
   {
     id: 2,
     name: "Portfolio",
     image: ImageFour,
+    link: "",
   },
   {
     id: 3,
     name: "Image-Search",
     image: ImageFive,
+    link: "",
   },
 ];
 
@@ -44,12 +49,17 @@ const filterData = [
 
 const Portfolio = () => {
   const [filteredValue, setFilteredValue] = useState(1);
+  const [hoveredValue, SetHoveredValue] = useState(null);
 
   function handleFilter(currentId) {
     setFilteredValue(currentId);
   }
 
-  console.log(filteredValue);
+  function handleHover(index) {
+    SetHoveredValue(index);
+  }
+
+  console.log(hoveredValue);
 
   const filteredItems =
     filteredValue === 1
@@ -77,15 +87,25 @@ const Portfolio = () => {
           ))}
         </ul>
         <div className="portfolio__content__cards">
-          {filteredItems.map((item) => (
+          {filteredItems.map((item, index) => (
             <div
-              className="portfolio__content__cards__item__img-wrapper"
+              className="portfolio__content__cards__item"
               key={`cardItems ${item.name.trim()}`}
+              onMouseEnter={() => handleHover(index)}
+              onMouseLeave={() => handleHover(null)}
             >
               <div className="portfolio__content__cards__item__img-wrapper">
                 <a>
                   <img alt="dummy data" src={item.image}></img>
                 </a>
+              </div>
+              <div className="overlay">
+                {index === hoveredValue && (
+                  <div>
+                    <p>{item.name}</p>
+                    <button>Visit</button>
+                  </div>
+                )}
               </div>
             </div>
           ))}
